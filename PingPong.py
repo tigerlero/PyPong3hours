@@ -290,7 +290,7 @@ class Ball(object):
             bounce_angle = normalized_intersect_x * (math.pi / 3)
             self.x_speed = (math.sin(bounce_angle) * obj.speed / 1.5)
             self.y_speed = (math.cos(bounce_angle) * obj.speed / 1.5)
-        elif isinstance(obj, Player):
+        elif hasattr(game, 'player') and obj == game.player:
             # Calculate the angle and speed of the ball's reflection based on the enemy's movement speed and angle
             enemy_center_x = obj.x + obj.width / 2
             relative_intersect_x = enemy_center_x - self.x
